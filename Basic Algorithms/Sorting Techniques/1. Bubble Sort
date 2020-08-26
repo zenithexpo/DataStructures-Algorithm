@@ -1,0 +1,27 @@
+Sorting Algorithms are concepts that every competitive programmer must know. Sorting algorithms can be used for collections of numbers, strings, characters, or a structure of any of these types.
+
+Bubble sort is based on the idea of repeatedly comparing pairs of adjacent elements and then swapping their positions if they exist in the wrong order.
+
+Bubble Sort 
+You have been given an array A of size N . you need to sort this array non-decreasing oder using bubble sort. However, you do not need to print the sorted array . You just need to print the number of swaps required to sort this array using bubble sort
+
+Input Format
+
+The first line consists of a single integer N denoting size of the array. The next line contains N space separated integers denoting the elements of the array.
+
+# Write your code here
+def bubble(n,arr):
+    c=0
+    for i in range(n-1):
+        for j in range(n-1-i):
+            if arr[j]>arr[j+1]:
+                tmp = arr[j+1]
+                arr[j+1]=arr[j]
+                arr[j]=tmp
+                c+=1
+    return c
+
+# Write your code here
+n = int(input())
+li = list(map(int,input().split()))
+print(bubble(n,li))
