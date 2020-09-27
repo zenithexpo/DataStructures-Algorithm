@@ -1,0 +1,44 @@
+Take profits and weights list
+Calculate profit per unit weight
+Sort the profits and weight list according to profit per unit weight
+Apply logic, add weights acc max profit per unit weight till bag becomes full.
+
+----------------------------------------------------------------------
+def knapsack(profits,weights, max_w):
+    total_profit = 0
+    profit_per_weight = []
+    n = len(profits)
+    
+    for i in range(len(profits)):
+        t = profits[i]/weights[i]
+        profit_per_weight.append(t)
+        
+    zipped_lists = zip(profit_per_weight, profits)
+    sorted_zipped_lists = sorted(zipped_lists, reverse = True)
+    profits1 = [element for _, element in sorted_zipped_lists]
+    
+    print(profits1)
+    
+    zipped_lists = zip(profit_per_weight, weights)
+    sorted_zipped_lists = sorted(zipped_lists, reverse = True)
+    weights1 = [element for _, element in sorted_zipped_lists]
+    
+    print(weights1)
+    i = 0
+    for i in range(n):
+        if max_w >0 and weights1[i] <= max_w:
+            max_w -= weights1[i]
+            total_profit += profits1[i]
+        else: 
+            break
+    if max_w > 0:
+        total_profit += (profits1[i]/weights1[i])* max_w
+        
+    print(total_profit)    
+
+knapsack([25,24,15],[18,15,10],20)
+
+
+		
+		
+	
